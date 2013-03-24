@@ -12,4 +12,4 @@
 #include <string.h> 
 #include <ctype.h> 
 #include <sys/time.h> 
-#endif  /HEADER_H_*/
+#endif  /*HEADER_H_*/
