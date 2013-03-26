@@ -20,7 +20,25 @@
 
  int main(int argc, char const *argv[])
  {
- 	
+ 	// create a process
+ 	int status;
+ 	pid_t ForkPID;
+ 	ForkPID = fork();
+
+ 	switch (ForkPID){
+ 		// fork failure
+ 		case -1:
+ 			printf("Error: Failed to fork.\n"); break;
+
+ 		//child process
+ 		case 0:
+
+ 			execlp("./MyCopy",argv[0],argv[1],argv[2],NULL);
+ 			exit(0);
+ 		//parent process
+ 		default:
+ 			wait(&status);
+ 	}
  	return 0;
  }
 
