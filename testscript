@@ -1,0 +1,150 @@
+To work well with makefile I change all file with ".c" to ".cc"
+Due to the difference between g++ and gcc.
+
+!!!!Notice: For too large file, the time may be negetive since "(timeval).tv_usec" can only be type of long.
+
+1.MyCopy
+xzdandy@ubuntu:~/OS_project1/src$ ./MyCopy in out
+Excutable time: 3282 microseconds
+Child Completed.
+
+xzdandy@ubuntu:~/OS_project1/src$ ./MyCopy ~/cs356project1.pdf ~/Documents/out.pdf
+Excutable time: 43013 microseconds
+Child Completed.
+
+xzdandy@ubuntu:~/OS_project1/src$ ./MyCopy rewrqew gfbgf
+Could not open the file 'rewrqew'.
+
+2.ForkCopy
+xzdandy@ubuntu:~/OS_project1/src$ ./ForkCopy in out
+Excutable time: 4922 microseconds
+Child Completed.
+
+xzdandy@ubuntu:~/OS_project1/src$ ./ForkCopy ~/cs356project1.pdf ~/Documents/out.pdf
+Excutable time: 6966 microseconds
+Child Completed.
+
+3.PipeCopy
+xzdandy@ubuntu:~/OS_project1/src$ ./PipeCopy in out
+Excutable time: 3214 microseconds
+Child Completed.
+
+xzdandy@ubuntu:~/OS_project1/src$ ./PipeCopy ~/cs356project1.pdf ~/Documents/out.pdf
+Excutable time: 170335 microseconds
+Child Completed.
+
+4.MyShell
+xzdandy@ubuntu:~/OS_project1/src$ ./MyShell
+myshell> ls
+BBC		 ForkCopy_core	    MoreShell	   out
+BurgerBuddies.c  ForkCopy_core.c    MoreShell.c    PipeCopy
+data.in		 header		    MyCopy	   PipeCopy.c
+data.out	 in		    MyCopy.c	   PipeCopy_core
+DupShell	 MergesortMulti     MyCopy_core    PipeCopy_core.c
+DupShell.c	 MergesortMulti.c   MyCopy_core.c  produceData
+ForkCopy	 MergesortSingle    MyShell	   produceData.c
+ForkCopy.c	 MergesortSingle.c  MyShell.c
+myshell> date
+Fri Apr  5 03:19:16 PDT 2013
+myshell> erw
+Error: running command: 'erw'
+myshell> exit
+Child Completed.
+
+5.MoreShell
+xzdandy@ubuntu:~/OS_project1/src$ ./MoreShell
+moreshell> erw
+Error: running command: 'erw'
+moreshell> date
+Fri Apr  5 03:21:48 PDT 2013
+moreshell> rm in
+rm: cannot remove `in': No such file or directory
+moreshell> rm out
+moreshell> ls -l
+total 192
+-rwxrwxr-x 1 xzdandy xzdandy 12576 Apr  5 03:06 BBC
+-rw-rw-r-- 1 xzdandy xzdandy  4164 Apr  5 03:05 BurgerBuddies.c
+-rw-r--r-- 1 xzdandy xzdandy  1053 Apr  4 06:01 data.in
+-rw-rw-r-- 1 xzdandy xzdandy  1053 Apr  5 03:02 data.out
+-rw-r--r-- 1 xzdandy xzdandy  7491 Mar 31 07:33 DupShell
+-rw-r--r-- 1 xzdandy xzdandy  1591 Mar 31 07:33 DupShell.c
+-rwxrwxr-x 1 xzdandy xzdandy  7429 Apr  5 02:50 ForkCopy
+-rw-r--r-- 1 xzdandy xzdandy  1327 Apr  5 02:50 ForkCopy.c
+-rwxrwxr-x 1 xzdandy xzdandy  7313 Apr  5 02:54 ForkCopy_core
+-rw-r--r-- 1 xzdandy xzdandy   869 Apr  5 02:50 ForkCopy_core.c
+drwx------ 2 xzdandy xzdandy  4096 Mar 19 17:56 header
+-rwxrwxr-x 1 xzdandy xzdandy 12089 Apr  5 03:01 MergesortMulti
+-rw-rw-r-- 1 xzdandy xzdandy  4986 Apr  5 03:01 MergesortMulti.c
+-rwxrwxr-x 1 xzdandy xzdandy 12081 Apr  5 03:00 MergesortSingle
+-rw-r--r-- 1 xzdandy xzdandy  3333 Apr  5 03:00 MergesortSingle.c
+-rwxrwxr-x 1 xzdandy xzdandy  7612 Apr  5 02:59 MoreShell
+-rw-r--r-- 1 xzdandy xzdandy  1450 Apr  5 02:59 MoreShell.c
+-rwxrwxr-x 1 xzdandy xzdandy  7427 Apr  5 02:51 MyCopy
+-rw-r--r-- 1 xzdandy xzdandy  1321 Apr  5 02:51 MyCopy.c
+-rwxrwxr-x 1 xzdandy xzdandy  7401 Apr  5 02:51 MyCopy_core
+-rw-r--r-- 1 xzdandy xzdandy  1268 Apr  5 02:51 MyCopy_core.c
+-rwxrwxr-x 1 xzdandy xzdandy  7539 Apr  5 02:58 MyShell
+-rw-r--r-- 1 xzdandy xzdandy  1102 Apr  5 02:58 MyShell.c
+-rwxrwxr-x 1 xzdandy xzdandy  7429 Apr  5 02:57 PipeCopy
+-rw-r--r-- 1 xzdandy xzdandy  1327 Apr  5 02:57 PipeCopy.c
+-rwxrwxr-x 1 xzdandy xzdandy  7644 Apr  5 02:55 PipeCopy_core
+-rw-r--r-- 1 xzdandy xzdandy  1512 Apr  5 02:55 PipeCopy_core.c
+-rwxrwxr-x 1 xzdandy xzdandy  7389 Apr  4 06:01 produceData
+-rw-rw-r-- 1 xzdandy xzdandy   322 Apr  4 06:01 produceData.c
+moreshell> exit
+Child Compeleted.
+
+6.DupShell
+
+7.MergesortSingle and MergesortMulti
+xzdandy@ubuntu:~/OS_project1/src$ ./produceData 100
+xzdandy@ubuntu:~/OS_project1/src$ ./MergesortSingle
+Thread ends.
+Excutable time: 6077 microseconds
+Child Completed.
+xzdandy@ubuntu:~/OS_project1/src$ ./MergesortMulti
+All threads end.
+Excutable time: 8206 microseconds
+Child Completed.
+
+data.in 
+100 1151348418 1896489023 1644126188 117656579 1252470385 1366040515 116428860 1879860161 1105026839 534042551 1550400882 1934069606 203950044 325311946 1892765947 671708739 2076740755 1244575275 1354736441 870086403 595297533 1067415126 1590888296 748516704 655919596 1644990700 623395944 1500530526 995305777 594989535 1660641601 2146654195 343994910 1157284141 116827126 1596465296 375841009 233255986 1328841809 1480867848 767298537 731759043 1267453807 971248582 1057070989 1012736106 1642957321 986328096 109827733 850210114 1856414499 705125267 1917625240 1299819148 1453641971 426061188 797326200 2077037915 1926591714 1792631977 524543802 1439749668 1791802525 868538713 449550161 1908629651 317520361 825391170 2141885638 1646362170 158775371 761700527 230637565 1426229178 1732949109 1287708554 291481636 1228422782 126553002 401309370 2078632896 1982967501 1106434637 1848774488 1135303001 412592960 127352028 1932629202 342147228 2053943743 1577777531 866691030 1346209763 1222096408 1735229743 1795759924 983242412 2052750104 473667447 977644402 
+
+data.out
+100 109827733 116428860 116827126 117656579 126553002 127352028 158775371 203950044 230637565 233255986 291481636 317520361 325311946 342147228 343994910 375841009 401309370 412592960 426061188 449550161 473667447 524543802 534042551 594989535 595297533 623395944 655919596 671708739 705125267 731759043 748516704 761700527 767298537 797326200 825391170 850210114 866691030 868538713 870086403 971248582 977644402 983242412 986328096 995305777 1012736106 1057070989 1067415126 1105026839 1106434637 1135303001 1151348418 1157284141 1222096408 1228422782 1244575275 1252470385 1267453807 1287708554 1299819148 1328841809 1346209763 1354736441 1366040515 1426229178 1439749668 1453641971 1480867848 1500530526 1550400882 1577777531 1590888296 1596465296 1642957321 1644126188 1644990700 1646362170 1660641601 1732949109 1735229743 1791802525 1792631977 1795759924 1848774488 1856414499 1879860161 1892765947 1896489023 1908629651 1917625240 1926591714 1932629202 1934069606 1982967501 2052750104 2053943743 2076740755 2077037915 2078632896 2141885638 2146654195 
+
+xzdandy@ubuntu:~/OS_project1/src$ ./produceData 1000
+xzdandy@ubuntu:~/OS_project1/src$ ./MergesortSingle
+Thread ends.
+Excutable time: 7458 microseconds
+Child Completed.
+xzdandy@ubuntu:~/OS_project1/src$ ./MergesortMulti
+All threads end.
+Excutable time: 101675 microseconds
+Child Completed.
+
+data.in and data.out is too large to show here.
+
+8.BBC
+xzdandy@ubuntu:~/OS_project1/src$ ./BBC 2 4 41 10
+Cooks [2], Cashiers [4], Customers [41]
+Begin run.
+Cook[1] makes a burger.
+Customer[15] comes.
+Cashier[1] accepts an order.
+Cashier[1] take a burger to customor
+Customer[15] leaves.
+Customer[41] comes.
+Cashier[2] accepts an order.
+Cook[2] makes a burger.
+Cashier[2] take a burger to customor
+Customer[41] leaves.
+Customer[34] comes.
+Cashier[3] accepts an order.
+Cook[1] makes a burger.
+Cashier[3] take a burger to customor
+Customer[34] leaves.
+Customer[21] comes.
+Customer[35] comes.
+Cashier[4] accepts an order.
+...
